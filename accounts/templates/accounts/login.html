@@ -1,0 +1,45 @@
+<html>{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Manager</title>
+    <link href="{% static 'accounts/css.css' %}" rel="stylesheet" id="bootstrap-css">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'accounts/js.js' %}"></script>
+
+</head>
+<body>
+<div class="login-reg-panel">
+		<div class="login-info-box">
+			<h2>Have an account?</h2>
+			<p>Lorem ipsum dolor sit amet</p>
+			<label id="label-register" for="log-reg-show">Login</label>
+			<input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
+		</div>
+
+		<div class="register-info-box">
+			<h2>Don't have an account?</h2>
+			<p>Click On Register Button to create an Account</p>
+            <label id="label-login" for="log-login-show"><a class="text-white" href="{% url 'register' %}">Register</a></label>
+			<input type="radio" name="active-log-panel" id="log-login-show">
+		</div>
+
+		<div class="white-panel">
+			<div class="login-show">
+                <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+                    <h2>LOGIN</h2>
+                    <input type="text" name="username" placeholder="Username">
+                    <input type="password" name="password" placeholder="Password">
+                    <a href="">Forgot password?</a>
+                    <input type="submit" class="btn btn-secondary" value="Login">
+                </form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

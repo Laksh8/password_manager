@@ -1,0 +1,20 @@
+{% extends 'manager/base.html' %}
+
+{% block head %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form action="{% url 'detail' %}" method="POST">{% csrf_token %}
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="website" placeholder="Website" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="password" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
